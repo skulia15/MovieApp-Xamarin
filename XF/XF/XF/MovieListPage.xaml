@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.MovieListPage"
+             Title="Results">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ListView"
+                      HasUnevenRows="True"
+                      ItemsSource="{Binding Movies}"
+                      SeparatorColor="Gold"
+                      BackgroundColor="#373737"
+                      SelectedItem="{Binding SelectedMovie, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10, 10"
+                                  RowSpacing="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="{Binding Title}"
+                                       FontSize="Medium"
+                                       TextColor="White"/>
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="{Binding Year, StringFormat=' ({0})'}"
+                                       FontSize="Medium"
+                                       TextColor="White"/>
+                                <Label Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="{Binding Cast}"
+                                       TextColor="White"
+                                       FontSize="Micro"/>
+                                <Image Grid.Row="0"
+                                       Grid.Column="2"
+                                       Grid.RowSpan="2"
+                                       Source="{Binding PosterImageSource}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

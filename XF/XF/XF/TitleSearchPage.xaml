@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XF"
+             x:Class="XF.TitleSearchPage"
+             BackgroundColor="#373737"
+             Title="Movie Search">
+    <ContentPage.Content>
+        <StackLayout Margin="20,40,20,20"
+                     VerticalOptions="Start"
+                     Spacing="10">
+            <Label Text="Enter a movie title:"
+                   TextColor="White"
+                    HorizontalOptions="Center" />
+            <Entry x:Name="titleEntry"
+                   Placeholder="Movie title"
+                   TextColor="White"
+                   PlaceholderColor="Gray"/>
+            <Button x:Name="searchButton"
+                    Text="Search"
+                    BackgroundColor="Gold"
+                    TextColor="#313131"
+                    HorizontalOptions="Center"
+                    Clicked="SearchButton_Clicked"/>
+            <ActivityIndicator x:Name="loading" Color="Gray" IsRunning="False" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
