@@ -21,7 +21,7 @@ namespace XF.UWP
 		{
 			this.InitializeComponent();
 
-			LoadApplication(new XF.App());
+			LoadApplication(new XF.Pages.App());
 		}
 	}
 }

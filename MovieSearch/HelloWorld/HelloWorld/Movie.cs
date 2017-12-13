@@ -1,19 +1,31 @@
 ﻿using DM.MovieApi.MovieDb.Genres;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 namespace MovieSearch
 {
-	public class Movie
+	public class Movie : INotifyPropertyChanged
 	{
 		private readonly string POSTER_URL = "http://image.tmdb.org/t/p/original";
+
+		private string cast;
 
 		public int Id { get; set; }
 		public string Title { get; set; }
 		public int Year { get; set; }
 		public List<string> ListCast { get; set; }
-		public string Cast { get; set; }
+		public string Cast
+		{
+			get => this.cast;
+			set
+			{
+				this.cast = value;
+				OnPropertyChanged();
+			}
+		}
 		public string Poster { get; set; }
 		public string Backdrop { get; set; }
 		public List<string> ListGenres { get; set; }
@@ -56,6 +68,12 @@ namespace MovieSearch
 		{
 			Uri.TryCreate(POSTER_URL + path, UriKind.Absolute, out Uri returnUri);
 			return returnUri;
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null){
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

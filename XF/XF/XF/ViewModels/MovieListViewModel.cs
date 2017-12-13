@@ -7,8 +7,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XF.Pages;
 
-namespace XF
+namespace XF.ViewModels
 {
 	public class MovieListViewModel : INotifyPropertyChanged
 	{
@@ -21,11 +22,6 @@ namespace XF
 			this._navigation = navigation;
 			_movieList = movies;
 		}
-
-		//private async void GetCast()
-		//{
-		//	_cast = await movieController.GetCastByIdAsync(_movie.Id);
-		//}
 
 		public List<Movie> Movies
 		{

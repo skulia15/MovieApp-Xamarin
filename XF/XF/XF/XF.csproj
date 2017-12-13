@@ -35,29 +35,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Pages\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MoviePage.xaml.cs">
+    <Compile Include="Pages\MoviePage.xaml.cs">
       <DependentUpon>MoviePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TopRatedPage.xaml.cs">
+      <DependentUpon>TopRatedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\MovieViewModel.cs" />
-    <Compile Include="TitleSearchPage.xaml.cs">
+    <Compile Include="Pages\TitleSearchPage.xaml.cs">
       <DependentUpon>TitleSearchPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MovieController.cs" />
-    <Compile Include="MovieListPage.xaml.cs">
+    <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Pages\MovieListPage.xaml.cs">
       <DependentUpon>MovieListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MovieListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TitleSearchPage.xaml">
+    <EmbeddedResource Include="Pages\TitleSearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="App.xaml">
+    <EmbeddedResource Include="Pages\App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -89,16 +92,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MovieListPage.xaml">
+    <EmbeddedResource Include="Pages\MovieListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="Renderers\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MoviePage.xaml">
+    <EmbeddedResource Include="Pages\MoviePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\TopRatedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

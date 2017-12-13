@@ -8,8 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XF.Controllers;
 
-namespace XF
+namespace XF.ViewModels
 {
     public class MovieViewModel : INotifyPropertyChanged
 	{
