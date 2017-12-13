@@ -31,7 +31,7 @@ namespace XF.Pages
 			};
 			//topRatedPage.SetNav(topRatedNavigationPage.Navigation);
 
-			var popularPage = new PopularPage();
+			var popularPage = new TopRatedPage(movieController, new PopularViewModel(movieController));
 			var PopularNavigationPage = new NavigationPage(popularPage)
 			{
 				Title = "Popular"

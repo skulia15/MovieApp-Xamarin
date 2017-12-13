@@ -29,14 +29,6 @@ namespace XF.Pages
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
-			await viewModel.GetCast(viewModel.Movies);
-			//// Activate loading Icon
-			//this.loading.IsRunning = true;
-			//// Search movies by title
-			//this._movies = await _movieController.GetTopRated();
-			//// Deactivate loading icon
-			//this.loading.IsRunning = false;
-			//await this.Navigation.PushAsync(new MovieListPage(this._movies, _movieController));
 		}
 	}
 

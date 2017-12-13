@@ -13,10 +13,9 @@ using XF.Pages;
 
 namespace XF.ViewModels
 {
-	class TopRatedViewModel : ListViewModel
+	class PopularViewModel : ListViewModel
 	{
-		private bool _isRefreshing = false;
-		public TopRatedViewModel(MovieController movieController)
+		public PopularViewModel(MovieController movieController)
 		{
 			this._movieController = movieController;
 
@@ -28,12 +27,13 @@ namespace XF.ViewModels
 			// Activate loading Icon
 			Loading = true;
 			// Search movies by title
-			Movies = await _movieController.GetTopRated();
+			Movies = await _movieController.GetPopular();
 			// Deactivate loading icon
 			Loading = false;
 			await GetCast(Movies);
 		}
-		
+
+
 		public bool Loading
 		{
 			get => loading;
@@ -41,32 +41,6 @@ namespace XF.ViewModels
 			{
 				loading = value;
 				OnPropertyChanged();
-			}
-		}
-
-		public ICommand RefreshCommand
-		{
-			get
-			{
-				return new Command(async () =>
-				{
-					IsRefreshing = true;
-
-					await GetMovies();
-					await GetCast(Movies);
-
-					IsRefreshing = false;
-				});
-			}
-		}
-
-		public new bool IsRefreshing
-		{
-			get { return _isRefreshing; }
-			set
-			{
-				_isRefreshing = value;
-				OnPropertyChanged(nameof(IsRefreshing));
 			}
 		}
 	}

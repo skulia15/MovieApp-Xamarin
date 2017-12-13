@@ -21,6 +21,5 @@ namespace XF.ViewModels
 			this._navigation = navigation;
 			_movies = movies;
 		}
-		
 	}
 }

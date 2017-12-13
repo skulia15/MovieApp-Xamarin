@@ -8,7 +8,9 @@
     <ContentPage.Content>
         <StackLayout>
             <ActivityIndicator x:Name="loading" Color="Gray" IsRunning="False" />
-            <pages:MovieListContentView />
+            <pages:MovieListContentView IsPullToRefreshEnabled="True"
+                                        RefreshCommand="{Binding RefreshCommand}"
+                                        IsRefreshing="{Binding IsRefreshing}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
