@@ -21,5 +21,6 @@ namespace XF.Pages
 			this.BindingContext = new TitleSearchViewModel(Navigation, _movieController);
 			InitializeComponent();
 		}
+
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using MovieSearch;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -15,13 +16,13 @@ namespace XF.Pages
 	{
 		MovieController _movieController;
 		List<Movie> _movies;
-		MovieListViewModel viewModel;
+		ListViewModel viewModel;
 
-		public MovieListPage(List<Movie> movies, MovieController movieController)
+		public MovieListPage(List<Movie> movies, MovieController movieController, ListViewModel viewModel)
 		{
 			this._movieController = movieController;
 			this._movies = movies;
-			viewModel = new MovieListViewModel(this.Navigation, movies, _movieController);
+			this.viewModel = viewModel;// new MovieListViewModel(this.Navigation, movies, _movieController);
 			this.BindingContext = viewModel;
 			this.InitializeComponent();
 		}
@@ -29,29 +30,12 @@ namespace XF.Pages
 		protected async override void OnAppearing()
 		{
 			base.OnAppearing();
-			await getCast(_movies);
+			await viewModel.GetCast(_movies);
 		}
 
 		//if(Device.RuntimePlatform == Device.UWP){
 		//	// Running on windows
 		//}
 
-		private async Task getCast(List<Movie> movies)
-		{
-			foreach (Movie movie in movies)
-			{
-				try
-				{
-					movie.ListCast = await _movieController.GetCastByIdAsync(movie.Id);
-					movie.Cast = movie.CastToString();
-				}
-				catch(Exception e)
-				{
-					movie.ListCast = null;
-				}
-				viewModel.Movies = movies;
-			}
-			
-		}
 	}
 }

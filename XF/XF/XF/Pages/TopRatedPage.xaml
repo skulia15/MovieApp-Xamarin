@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XF.Pages.TopRatedPage"
+             xmlns:pages="clr-namespace:XF.Pages;assembly=XF"
              Title="Top Rated"
              BackgroundColor="#313131">
     <ContentPage.Content>
         <StackLayout>
             <ActivityIndicator x:Name="loading" Color="Gray" IsRunning="False" />
+            <pages:MovieListContentView />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

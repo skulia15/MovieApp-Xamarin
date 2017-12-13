@@ -1,4 +1,5 @@
-﻿using DM.MovieApi.MovieDb.Movies;
+﻿
+using MovieSearch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 
 using Xamarin.Forms;
 using XF.Controllers;
+using XF.ViewModels;
 
 namespace XF.Pages
 {
@@ -22,11 +24,12 @@ namespace XF.Pages
 				Title = "Search"
 			};
 
-			var topRatedPage = new TopRatedPage(movieController);
+			var topRatedPage = new TopRatedPage(movieController, new TopRatedViewModel(movieController));
 			var topRatedNavigationPage = new NavigationPage(topRatedPage)
 			{
 				Title = "Top Rated"
 			};
+			//topRatedPage.SetNav(topRatedNavigationPage.Navigation);
 
 			var popularPage = new PopularPage();
 			var PopularNavigationPage = new NavigationPage(popularPage)

@@ -16,7 +16,6 @@ namespace XF.ViewModels
 	class TitleSearchViewModel : INotifyPropertyChanged
 	{
 		private INavigation _navigation;
-		private Movie _movie;
 		MovieController _movieController;
 		public ICommand TitleSearchCommand { protected set; get; }
 		public string title;
@@ -38,7 +37,7 @@ namespace XF.ViewModels
 					List<Movie> movies = await movieController.GetMoviesByTitleAsync(this.title);
 					// Deactivate loading icon
 					Loading = false;
-					await this._navigation.PushAsync(new MovieListPage(movies, movieController));
+					await this._navigation.PushAsync(new MovieListPage(movies, movieController, new MovieListViewModel(_navigation, movies, movieController)));
 				}
 			});
 		}
