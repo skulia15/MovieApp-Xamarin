@@ -16,17 +16,13 @@ namespace XF.ViewModels
 	{
 		private INavigation _navigation;
 		private Movie _movie;
-		MovieController movieController = new MovieController();
+		MovieController _movieController;
 
-		public MovieViewModel(INavigation navigation, Movie movie)
+		public MovieViewModel(INavigation navigation, Movie movie, MovieController movieController)
 		{
 			this._navigation = navigation;
+			this._movieController = movieController;
 			_movie = movie;
-
-			//MovieController movieController = new MovieController();
-			//var detailedMovie = movieController.GetMovieByIdAsync(movie.Id);
-			//movie.Tagline = detailedMovie.Result.Tagline;
-			//movie.Runtime = detailedMovie.Result.Runtime;
 		}
 
 		public Movie Movie
@@ -61,7 +57,7 @@ namespace XF.ViewModels
 
 		public async Task GetAdditionalInfo()
 		{
-			var movieInfo = await movieController.GetMovieByIdAsync(_movie.Id);
+			var movieInfo = await _movieController.GetMovieByIdAsync(_movie.Id);
 			Runtime = movieInfo.Runtime;
 			Tagline = movieInfo.Tagline;
 		} 

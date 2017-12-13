@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XF.Controllers;
 using XF.Pages;
 
 namespace XF.ViewModels
@@ -16,9 +17,11 @@ namespace XF.ViewModels
 		private INavigation _navigation;
 		private List<Movie> _movieList;
 		private Movie _selectedMovie;
+		MovieController _movieController;
 
-		public MovieListViewModel(INavigation navigation, List<Movie> movies)
+		public MovieListViewModel(INavigation navigation, List<Movie> movies, MovieController movieController)
 		{
+			this._movieController = movieController;
 			this._navigation = navigation;
 			_movieList = movies;
 		}
@@ -40,7 +43,7 @@ namespace XF.ViewModels
 					this._selectedMovie = value;
 					this.OnPropertyChanged(); 
 
-					this._navigation.PushAsync(new MoviePage(this._selectedMovie), true);
+					this._navigation.PushAsync(new MoviePage(this._selectedMovie, _movieController), true);
 					this._selectedMovie = null;
 					this.OnPropertyChanged();
 				}

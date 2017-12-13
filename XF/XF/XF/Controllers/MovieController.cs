@@ -24,6 +24,18 @@ namespace XF.Controllers
 			return await converter.GetMovieByIdAsync(id);
 		}
 
+		public async Task<List<MovieSearch.Movie>> GetTopRated()
+		{
+			List<MovieSearch.Movie> movies = await converter.GetTopRatedMoviesAsync();
+			return movies;
+		}
+
+		public async Task<List<MovieSearch.Movie>> GetPopular()
+		{
+			List<MovieSearch.Movie> movies = await converter.GetPopularMoviesAsync();
+			return movies;
+		}
+
 		public async Task<List<string>> GetCastByIdAsync(int id)
 		{
 			var creditResponse = await converter.GetCastByIdAsync(id);

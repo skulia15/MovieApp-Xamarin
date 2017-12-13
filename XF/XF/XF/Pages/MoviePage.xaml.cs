@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Controllers;
 using XF.ViewModels;
 
 namespace XF.Pages
@@ -16,9 +17,11 @@ namespace XF.Pages
 	public partial class MoviePage : ContentPage
 	{
 		MovieViewModel viewModel;
-		public MoviePage (Movie movie)
+		MovieController _movieController;
+		public MoviePage (Movie movie, MovieController movieController)
 		{
-			viewModel = new MovieViewModel(this.Navigation, movie);
+			this._movieController = movieController;
+			viewModel = new MovieViewModel(this.Navigation, movie, _movieController);
 			this.BindingContext = viewModel;
 			InitializeComponent ();
 			this.titleAndYear.Text = movie.Title + " (" + movie.Year + ")";

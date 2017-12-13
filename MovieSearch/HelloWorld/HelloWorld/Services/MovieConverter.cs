@@ -27,8 +27,14 @@ namespace MovieSearch.Services
 				var titleResponse = await movieApi.SearchByTitleAsync(title);
 				movieInfos = GetMoviesFromResponse(titleResponse);
 			}
+			List<Movie> movies = ConvertToMovie(movieInfos);
+			return movies;
+		}
+
+		private static List<Movie> ConvertToMovie(List<MovieInfo> movieInfos)
+		{
 			List<Movie> movies = new List<Movie>();
-			foreach(MovieInfo movie in movieInfos)
+			foreach (MovieInfo movie in movieInfos)
 			{
 				List<string> genres = GetGenres(movie);
 				movies.Add(new Movie
@@ -43,9 +49,9 @@ namespace MovieSearch.Services
 					Description = movie.Overview,
 					Tagline = null,
 					Runtime = null
-
 				});
 			}
+
 			return movies;
 		}
 
@@ -63,8 +69,6 @@ namespace MovieSearch.Services
 			foreach (MovieInfo m in response.Results)
 			{
 				movies.Add(m);
-				//var movie = await GetMovieFromMovieInfo(m);
-				//movies.Add(movie);
 			}
 			return movies;
 		}
@@ -85,49 +89,19 @@ namespace MovieSearch.Services
 			return genres;
 		}
 
-		//	public async Task<List<Movie>> GetTopRatedMoviesAsync()
-		//	{
-		//		var topRated = await movieApi.GetTopRatedAsync();
-		//		var movies = GetMoviesFromResponse(topRated);
-		//		return movies;
-		//	}
+		public async Task<List<Movie>> GetTopRatedMoviesAsync()
+		{
+			var topRated = await movieApi.GetTopRatedAsync();
+			var movies = GetMoviesFromResponse(topRated);
+			return ConvertToMovie(movies);
+		}
 
-		//	public async Task<Movie> GetMovieFromMovieInfo(MovieInfo movie)
-		//	{
-		//		var creditResponse = await movieApi.GetCreditsAsync(movie.Id);
-		//		var movieResponse = await movieApi.FindByIdAsync(movie.Id);
-		//		List<string> cast = GetCast(creditResponse);
-		//		List<string> genres = GetGenres(movie);
+		public async Task<List<Movie>> GetPopularMoviesAsync()
+		{
+			var popular = await movieApi.GetPopularAsync();
+			var movies = GetMoviesFromResponse(popular);
+			return ConvertToMovie(movies);
+		}
 
-		//		Movie newMovie = new Movie
-		//		{
-		//			Title = movie.Title,
-		//			Year = movie.ReleaseDate.Year,
-		//			ListCast = cast,
-		//			Poster = movie.PosterPath,
-		//			Backdrop = movie.BackdropPath,
-		//			ListGenres = genres,
-		//			Description = movie.Overview,
-		//			Tagline = movieResponse.Item.Tagline,
-		//			Runtime = movieResponse.Item.Runtime
-		//		};
-		//		newMovie.Cast = newMovie.CastToString();
-		//		newMovie.Genres = newMovie.GetStringedGenres();
-
-		//		return newMovie;
-		//	}
-
-
-		//	private static List<string> GetCast(ApiQueryResponse<MovieCredit> creditResponse)
-		//	{
-		//		List<string> cast = new List<string>();
-		//		foreach (MovieCastMember c in creditResponse.Item.CastMembers)
-		//		{
-		//			cast.Add(c.Name);
-		//		}
-
-		//		return cast;
-		//	}
-		//}
 	}
 }

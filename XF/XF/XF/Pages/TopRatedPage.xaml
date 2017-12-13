@@ -6,8 +6,7 @@
              BackgroundColor="#313131">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                TextColor="White"/>
+            <ActivityIndicator x:Name="loading" Color="Gray" IsRunning="False" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
