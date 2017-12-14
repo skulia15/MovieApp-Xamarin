@@ -28,14 +28,14 @@
                             Grid.Column="1"
                             Margin="10, 10, 0, 0"
                             Text="{Binding TitleAndYear}"
-                            FontSize="Medium"
+                            FontSize="18"
                             TextColor="White"/>
                     <Label Grid.Row="1"
                             Grid.Column="1"
                             Margin="10, 0, 0, 10"
                             Text="{Binding Cast}"
                             TextColor="White"
-                            FontSize="12"/>
+                            FontSize="14"/>
                 </Grid>
             </ViewCell>
         </DataTemplate>

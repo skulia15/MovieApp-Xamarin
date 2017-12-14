@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XF.Pages.CustomListPage"
              xmlns:pages="clr-namespace:XF.Pages;assembly=XF"
-             Title="Top Rated"
+             Title="Browse Movies"
              BackgroundColor="#313131">
     <ContentPage.Content>
         <StackLayout>

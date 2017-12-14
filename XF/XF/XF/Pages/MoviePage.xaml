@@ -15,23 +15,23 @@
                     FontSize="Large"
                     TextColor="White" />
                 <Label x:Name="stats"
-                       FontSize="12"
+                       FontSize="14"
                        TextColor="White"/>
                 <BoxView 
                 HeightRequest="1" 
                 BackgroundColor="#ba9d09" 
                 HorizontalOptions="FillAndExpand" />
 
-                <Grid Padding="10, 15"
-                        RowSpacing="6">
+                <Grid Padding="0, 10">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="250"/>
+                        <RowDefinition Height="200"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Image Source="{Binding Movie.PosterImageSource}"
+                           VerticalOptions="StartAndExpand"
                            Margin="0, 0, 10, 0"/>
                     <ScrollView Grid.Row="0"
                                Grid.Column="1">

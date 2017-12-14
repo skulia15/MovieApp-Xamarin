@@ -30,7 +30,7 @@
             
             <ActivityIndicator Color="Gray" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}"/>
             
-            <pages:MovieListContentView />
+            <pages:MovieListContentView/>
             
             
         </StackLayout>
