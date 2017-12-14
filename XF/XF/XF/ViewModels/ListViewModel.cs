@@ -78,8 +78,7 @@ namespace XF.ViewModels
 				{
 					IsRefreshing = true;
 
-					GetMoviesAsync();
-					await GetCast(Movies);
+					await GetMoviesAsync();
 
 					IsRefreshing = false;
 				});

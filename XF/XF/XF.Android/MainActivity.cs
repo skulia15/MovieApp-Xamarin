@@ -10,7 +10,7 @@ using XF.Pages;
 
 namespace XF.Droid
 {
-	[Activity(Label = "XF", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity(Label = "Mobile App", Theme = "@style/splashscreen", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, LaunchMode = LaunchMode.SingleTop)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
 		protected override void OnCreate(Bundle bundle)
@@ -19,6 +19,7 @@ namespace XF.Droid
 			ToolbarResource = Resource.Layout.Toolbar;
 
 			base.OnCreate(bundle);
+			base.SetTheme(Resource.Style.MainTheme);
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 			LoadApplication(new App());

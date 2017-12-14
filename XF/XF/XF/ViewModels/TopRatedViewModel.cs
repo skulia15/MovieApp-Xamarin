@@ -25,7 +25,7 @@ namespace XF.ViewModels
 		internal override async Task GetMoviesAsync()
 		{
 			Movies = await _movieController.GetTopRated();
-			GetCast(Movies);
+			await GetCast(Movies);
 		}
 	}
 }
