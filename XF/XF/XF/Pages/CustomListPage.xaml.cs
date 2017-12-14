@@ -13,11 +13,11 @@ using XF.ViewModels;
 namespace XF.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class TopRatedPage : ContentPage
+	public partial class CustomListPage : ContentPage
 	{
 		public ListViewModel viewModel;
 		MovieController _movieController;
-		public TopRatedPage(MovieController movieController, ListViewModel viewModel)
+		public CustomListPage(MovieController movieController, ListViewModel viewModel)
 		{
 			this.viewModel = viewModel;
 			this._movieController = movieController;

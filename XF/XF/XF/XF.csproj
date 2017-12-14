@@ -45,8 +45,8 @@
       <DependentUpon>MoviePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TabbedPageInitializer.cs" />
-    <Compile Include="Pages\TopRatedPage.xaml.cs">
-      <DependentUpon>TopRatedPage.xaml</DependentUpon>
+    <Compile Include="Pages\CustomListPage.xaml.cs">
+      <DependentUpon>CustomListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ListViewModel.cs" />
     <Compile Include="ViewModels\MovieViewModel.cs" />
@@ -106,7 +106,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\TopRatedPage.xaml">
+    <EmbeddedResource Include="Pages\CustomListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

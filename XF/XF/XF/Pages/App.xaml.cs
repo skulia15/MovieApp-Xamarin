@@ -25,13 +25,13 @@ namespace XF.Pages
 				Title = "Search"
 			};
 
-			var topRatedPage = new TopRatedPage(movieController, new TopRatedViewModel(movieController));
+			var topRatedPage = new CustomListPage(movieController, new TopRatedViewModel(movieController));
 			var topRatedNavigationPage = new NavigationPage(topRatedPage)
 			{
 				Title = "Top Rated"
 			};
 
-			var popularPage = new TopRatedPage(movieController, new PopularViewModel(movieController));
+			var popularPage = new CustomListPage(movieController, new PopularViewModel(movieController));
 			var PopularNavigationPage = new NavigationPage(popularPage)
 			{
 				Title = "Popular"

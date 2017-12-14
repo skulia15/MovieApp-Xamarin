@@ -16,9 +16,9 @@ namespace XF.Pages
 		{
 			base.OnAppearing();
 			// Get movies for top rated
-			((TopRatedPage)((NavigationPage)Children[1]).RootPage).viewModel.GetMoviesAsync();
+			((CustomListPage)((NavigationPage)Children[1]).RootPage).viewModel.GetMoviesAsync();
 			// Get movies for popular
-			((TopRatedPage)((NavigationPage)Children[2]).RootPage).viewModel.GetMoviesAsync();
+			((CustomListPage)((NavigationPage)Children[2]).RootPage).viewModel.GetMoviesAsync();
 		}
 	}
 }
