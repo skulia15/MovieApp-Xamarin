@@ -15,33 +15,17 @@ namespace XF.ViewModels
 {
 	class PopularViewModel : ListViewModel
 	{
+		//private bool _isRefreshing = false;
 		public PopularViewModel(MovieController movieController)
 		{
-			this._movieController = movieController;
-
-			GetMovies();
+			_movieController = movieController;
+			Movies = new List<Movie>();
 		}
 
-		public async Task GetMovies()
+		internal override async Task GetMoviesAsync()
 		{
-			// Activate loading Icon
-			Loading = true;
-			// Search movies by title
 			Movies = await _movieController.GetPopular();
-			// Deactivate loading icon
-			Loading = false;
-			await GetCast(Movies);
-		}
-
-
-		public bool Loading
-		{
-			get => loading;
-			set
-			{
-				loading = value;
-				OnPropertyChanged();
-			}
+			GetCast(Movies);
 		}
 	}
 }

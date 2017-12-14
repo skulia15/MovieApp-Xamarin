@@ -2,35 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XF"
+             xmlns:pages="clr-namespace:XF.Pages;assembly=XF"
              x:Class="XF.Pages.TitleSearchPage"
-             BackgroundColor="#313131"
              Title="Movie Search">
     <ContentPage.Content>
-        <StackLayout Margin="20,40,20,20"
-                     VerticalOptions="Start"
+        <StackLayout
                      Spacing="10"
-                     BackgroundColor="#313131">
-            
-            <Label Text="Search for a Movie:"
-                   TextColor="White"
-                    HorizontalOptions="Center"
-                   FontSize="Large"/>
-            
-            <Entry x:Name="titleEntry"
-                   Placeholder="Movie title"
-                   TextColor="White"
-                   BackgroundColor="#313131"
-                   PlaceholderColor="Gray"
-                   Text="{Binding Title}"/>
-            
-            <Button x:Name="searchButton"
-                    Text="Search"
-                    BackgroundColor="Gold"
-                    TextColor="#313131"
-                    HorizontalOptions="Center"
-                    Command="{Binding TitleSearchCommand}"/>
+                     BackgroundColor="#373737">
+
+            <SearchBar Margin="10, 10"
+                       x:Name="titleSearch"
+                       Placeholder="Search for Movie"
+                       TextColor="Black"
+                       PlaceholderColor="LightGray"
+                       BackgroundColor="White"
+                       Text="{Binding SearchTitle}"
+                       SearchCommand="{Binding TitleSearchCommand}"
+                       CancelButtonColor="Gray">
+                <SearchBar.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double"
+                            Android="30.0"
+                            iOS="-1.0"
+                            WinPhone="-1">
+                    </OnPlatform>
+                </SearchBar.HeightRequest>
+            </SearchBar>
             
             <ActivityIndicator Color="Gray" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}"/>
+            
+            <pages:MovieListContentView />
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

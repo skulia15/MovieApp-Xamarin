@@ -24,15 +24,13 @@ namespace XF.Pages
 			viewModel = new MovieViewModel(this.Navigation, movie, _movieController);
 			this.BindingContext = viewModel;
 			InitializeComponent ();
-			this.titleAndYear.Text = movie.Title + " (" + movie.Year + ")";
-			this.stats.Text = movie.GetStringedGenres();
 		}
 
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
 			await viewModel.GetAdditionalInfo();
-			this.stats.Text = viewModel.Runtime + " min | " + viewModel.Movie.GetStringedGenres();
+			this.stats.Text = viewModel.Runtime + " min | " + viewModel.Movie.Genres;
 		}
 	}
 }

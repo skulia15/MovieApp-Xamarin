@@ -9,6 +9,7 @@
             <StackLayout Padding="10, 10, 10, 100">
                 <Label 
                     x:Name="titleAndYear"
+                    Text="{Binding Movie.TitleAndYear}"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand"
                     FontSize="Large"

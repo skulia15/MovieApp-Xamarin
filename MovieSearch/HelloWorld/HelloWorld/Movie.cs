@@ -33,6 +33,7 @@ namespace MovieSearch
 		public int? Runtime { get; set; }
 		public string Description { get; set; }
 		public string Tagline { get; set; }
+		public string TitleAndYear { get; set; }
 		public ImageSource PosterImageSource => ImageSource.FromUri(CastStringToUri(this.Poster));
 		public ImageSource BackdropImageSource => ImageSource.FromUri(CastStringToUri(this.Backdrop));
 

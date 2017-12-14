@@ -15,13 +15,13 @@ namespace XF.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TopRatedPage : ContentPage
 	{
-		ListViewModel viewModel;
+		public ListViewModel viewModel;
 		MovieController _movieController;
 		public TopRatedPage(MovieController movieController, ListViewModel viewModel)
 		{
 			this.viewModel = viewModel;
-			this.viewModel.SetNavigation(Navigation);
 			this._movieController = movieController;
+			this.viewModel.SetNavigation(Navigation);
 			this.BindingContext = viewModel;
 			InitializeComponent();
 		}
@@ -29,7 +29,7 @@ namespace XF.Pages
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
+			//await viewModel.GetCast(viewModel.Movies);
 		}
 	}
-
 }

@@ -20,6 +20,7 @@ namespace XF.ViewModels
 		protected List<Movie> _movies;
 		protected Movie _selectedMovie;
 		protected bool loading;
+		protected bool _isRefreshing = false;
 
 		internal void SetNavigation(INavigation navigation)
 		{
@@ -66,6 +67,34 @@ namespace XF.ViewModels
 					this._selectedMovie = null;
 					this.OnPropertyChanged();
 				}
+			}
+		}
+
+		public ICommand RefreshCommand
+		{
+			get
+			{
+				return new Command(async () =>
+				{
+					IsRefreshing = true;
+
+					GetMoviesAsync();
+					await GetCast(Movies);
+
+					IsRefreshing = false;
+				});
+			}
+		}
+
+		internal abstract Task GetMoviesAsync();
+
+		public bool IsRefreshing
+		{
+			get { return _isRefreshing; }
+			set
+			{
+				_isRefreshing = value;
+				OnPropertyChanged(nameof(IsRefreshing));
 			}
 		}
 

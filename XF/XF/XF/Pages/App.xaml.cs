@@ -18,7 +18,8 @@ namespace XF.Pages
 			MovieController movieController = new MovieController();
 
 			// The root page of your application
-			var titleSearchPage = new TitleSearchPage(movieController);
+
+			var titleSearchPage = new TitleSearchPage(movieController, new TitleSearchViewModel(movieController));
 			var titleNavigationPage = new NavigationPage(titleSearchPage)
 			{
 				Title = "Search"
@@ -29,7 +30,6 @@ namespace XF.Pages
 			{
 				Title = "Top Rated"
 			};
-			//topRatedPage.SetNav(topRatedNavigationPage.Navigation);
 
 			var popularPage = new TopRatedPage(movieController, new PopularViewModel(movieController));
 			var PopularNavigationPage = new NavigationPage(popularPage)
@@ -37,7 +37,7 @@ namespace XF.Pages
 				Title = "Popular"
 			};
 
-			var tabbedPage = new TabbedPage();
+			var tabbedPage = new TabbedPageInitializer();
 			tabbedPage.Children.Add(titleNavigationPage);
 			tabbedPage.Children.Add(topRatedNavigationPage);
 			tabbedPage.Children.Add(PopularNavigationPage);
@@ -48,6 +48,7 @@ namespace XF.Pages
 		protected override void OnStart()
 		{
 			// Handle when your app starts
+
 		}
 
 		protected override void OnSleep()

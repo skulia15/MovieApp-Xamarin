@@ -58,6 +58,7 @@ namespace XF.ViewModels
 		public async Task GetAdditionalInfo()
 		{
 			var movieInfo = await _movieController.GetMovieByIdAsync(_movie.Id);
+			Movie.Genres = _movie.GetStringedGenres();
 			Runtime = movieInfo.Runtime;
 			Tagline = movieInfo.Tagline;
 		} 

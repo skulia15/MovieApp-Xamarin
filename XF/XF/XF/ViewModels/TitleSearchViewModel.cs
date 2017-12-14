@@ -13,43 +13,38 @@ using XF.Pages;
 
 namespace XF.ViewModels
 {
-	class TitleSearchViewModel : INotifyPropertyChanged
+	class TitleSearchViewModel : ListViewModel
 	{
-		private INavigation _navigation;
-		MovieController _movieController;
 		public ICommand TitleSearchCommand { protected set; get; }
-		public string title;
-		public bool loading;
+		public string searchTitle;
+		private bool loading;
 
-
-		public TitleSearchViewModel(INavigation navigation, MovieController movieController)
+		public TitleSearchViewModel(MovieController movieController)
 		{
-			this._navigation = navigation;
-			this._movieController = movieController;
-
+			_movieController = movieController;
 			TitleSearchCommand = new Command(async () =>
 			{
-				if (this.title != null && this.title != "")
+				if (this.searchTitle != null && this.SearchTitle != "")
 				{
 					// Activate loading Icon
 					Loading = true;
 					// Search movies by title
-					List<Movie> movies = await movieController.GetMoviesByTitleAsync(this.title);
+					await GetMoviesAsync();
 					// Deactivate loading icon
 					Loading = false;
-					await this._navigation.PushAsync(new MovieListPage(movies, movieController, new MovieListViewModel(_navigation, movies, movieController)));
+					GetCast(Movies);
 				}
 			});
 		}
 
-		public string Title
+		public string SearchTitle
 		{
-			get => title;
+			get => searchTitle;
 			set
 			{
 				if (value != null)
 				{
-					title = value;
+					searchTitle = value;
 					OnPropertyChanged();
 				}
 			}
@@ -64,10 +59,14 @@ namespace XF.ViewModels
 			}
 		}
 
-		public event PropertyChangedEventHandler PropertyChanged;
-		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		internal override async Task GetMoviesAsync()
 		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+			// Activate loading Icon
+			Loading = true;
+			// Search movies by title
+			Movies = await _movieController.GetMoviesByTitleAsync(searchTitle);
+			// Deactivate loading icon
+			Loading = false;
 		}
 	}
 }

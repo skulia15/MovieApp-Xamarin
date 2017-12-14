@@ -13,14 +13,16 @@ namespace XF.Pages
 {
 	public partial class TitleSearchPage : ContentPage
 	{
-
-		private MovieController _movieController;
-		public TitleSearchPage(MovieController movieController)
+		MovieController _movieController;
+		ListViewModel viewModel;
+		
+		public TitleSearchPage(MovieController movieController, ListViewModel viewModel)
 		{
+			this.viewModel = viewModel;
 			this._movieController = movieController;
-			this.BindingContext = new TitleSearchViewModel(Navigation, _movieController);
+			this.viewModel.SetNavigation(Navigation);
+			this.BindingContext = viewModel;
 			InitializeComponent();
 		}
-
 	}
 }

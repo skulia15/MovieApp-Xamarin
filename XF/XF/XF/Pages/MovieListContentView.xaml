@@ -11,36 +11,31 @@
     <ListView.ItemTemplate>
         <DataTemplate>
             <ViewCell>
-                <Grid Padding="10, 10"
-                      RowSpacing="6">
+                <Grid RowSpacing="6">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="65"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="40"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0"
-                                    Grid.Column="0"
-                                    Text="{Binding Title}"
-                                    FontSize="Medium"
-                                    TextColor="White"/>
-                    <Label Grid.Row="0"
-                                    Grid.Column="1"
-                                    Text="{Binding Year, StringFormat=' ({0})'}"
-                                    FontSize="Medium"
-                                    TextColor="White"/>
-                    <Label Grid.Row="1"
-                                    Grid.Column="0"
-                                    Text="{Binding Cast}"
-                                    TextColor="White"
-                                    FontSize="Micro"/>
                     <Image Grid.Row="0"
-                                    Grid.Column="2"
-                                    Grid.RowSpan="2"
-                                    Source="{Binding PosterImageSource}"/>
+                            Grid.Column="0"
+                            Grid.RowSpan="2"
+                            Source="{Binding PosterImageSource}"/>
+                    <Label Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="10, 10, 0, 0"
+                            Text="{Binding TitleAndYear}"
+                            FontSize="Medium"
+                            TextColor="White"/>
+                    <Label Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10, 0, 0, 10"
+                            Text="{Binding Cast}"
+                            TextColor="White"
+                            FontSize="12"/>
                 </Grid>
             </ViewCell>
         </DataTemplate>

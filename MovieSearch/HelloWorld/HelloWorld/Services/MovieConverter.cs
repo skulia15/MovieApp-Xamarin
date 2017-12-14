@@ -2,7 +2,9 @@
 using DM.MovieApi.ApiResponse;
 using DM.MovieApi.MovieDb.Genres;
 using DM.MovieApi.MovieDb.Movies;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -47,6 +49,7 @@ namespace MovieSearch.Services
 					Backdrop = movie.BackdropPath,
 					ListGenres = genres,
 					Description = movie.Overview,
+					TitleAndYear = movie.Title + " (" + movie.ReleaseDate.Year + ")",
 					Tagline = null,
 					Runtime = null
 				});
@@ -91,9 +94,17 @@ namespace MovieSearch.Services
 
 		public async Task<List<Movie>> GetTopRatedMoviesAsync()
 		{
-			var topRated = await movieApi.GetTopRatedAsync();
-			var movies = GetMoviesFromResponse(topRated);
-			return ConvertToMovie(movies);
+			try
+			{
+				var topRated = await movieApi.GetTopRatedAsync();
+				var movies = GetMoviesFromResponse(topRated);
+				return ConvertToMovie(movies);
+			}
+			catch(Exception e)
+			{
+				Debug.WriteLine(e.StackTrace);
+				return new List<Movie>();
+			}
 		}
 
 		public async Task<List<Movie>> GetPopularMoviesAsync()

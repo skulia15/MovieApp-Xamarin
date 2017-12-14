@@ -15,59 +15,17 @@ namespace XF.ViewModels
 {
 	class TopRatedViewModel : ListViewModel
 	{
-		private bool _isRefreshing = false;
+		
 		public TopRatedViewModel(MovieController movieController)
 		{
-			this._movieController = movieController;
-
-			GetMovies();
+			_movieController = movieController;
+			Movies = new List<Movie>();
 		}
 
-		public async Task GetMovies()
+		internal override async Task GetMoviesAsync()
 		{
-			// Activate loading Icon
-			Loading = true;
-			// Search movies by title
 			Movies = await _movieController.GetTopRated();
-			// Deactivate loading icon
-			Loading = false;
-			await GetCast(Movies);
-		}
-		
-		public bool Loading
-		{
-			get => loading;
-			set
-			{
-				loading = value;
-				OnPropertyChanged();
-			}
-		}
-
-		public ICommand RefreshCommand
-		{
-			get
-			{
-				return new Command(async () =>
-				{
-					IsRefreshing = true;
-
-					await GetMovies();
-					await GetCast(Movies);
-
-					IsRefreshing = false;
-				});
-			}
-		}
-
-		public new bool IsRefreshing
-		{
-			get { return _isRefreshing; }
-			set
-			{
-				_isRefreshing = value;
-				OnPropertyChanged(nameof(IsRefreshing));
-			}
+			GetCast(Movies);
 		}
 	}
 }
