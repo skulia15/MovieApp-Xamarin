@@ -32,5 +32,6 @@ namespace XF.Pages
 			await viewModel.GetAdditionalInfo();
 			this.stats.Text = viewModel.Runtime + " min | " + viewModel.Movie.Genres;
 		}
+		
 	}
 }

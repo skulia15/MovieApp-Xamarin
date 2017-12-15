@@ -9,8 +9,7 @@
         <StackLayout
                      Spacing="10"
                      BackgroundColor="#373737">
-
-            <SearchBar Margin="10, 10"
+            <SearchBar Margin="10, 30, 10, 10"
                        x:Name="titleSearch"
                        Placeholder="Search for Movie"
                        TextColor="Black"
@@ -21,7 +20,7 @@
                        CancelButtonColor="Gray">
                 <SearchBar.HeightRequest>
                     <OnPlatform x:TypeArguments="x:Double"
-                            Android="30.0"
+                            Android="45.0"
                             iOS="-1.0"
                             WinPhone="-1">
                     </OnPlatform>

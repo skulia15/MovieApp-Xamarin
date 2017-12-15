@@ -25,11 +25,5 @@ namespace XF.Pages
 			this.BindingContext = viewModel;
 			InitializeComponent();
 		}
-
-		protected override async void OnAppearing()
-		{
-			base.OnAppearing();
-			//await viewModel.GetCast(viewModel.Movies);
-		}
 	}
 }

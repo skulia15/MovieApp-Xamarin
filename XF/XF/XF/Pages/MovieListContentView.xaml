@@ -11,7 +11,7 @@
     <ListView.ItemTemplate>
         <DataTemplate>
             <ViewCell>
-                <Grid RowSpacing="6">
+                <Grid RowSpacing="6" HeightRequest="100">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>

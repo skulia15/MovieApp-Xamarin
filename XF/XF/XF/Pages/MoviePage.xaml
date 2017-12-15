@@ -34,10 +34,11 @@
                            VerticalOptions="StartAndExpand"
                            Margin="0, 0, 10, 0"/>
                     <ScrollView Grid.Row="0"
-                               Grid.Column="1">
+                                Grid.Column="1"
+                                IsClippedToBounds="True">
                         <Label Text="{Binding Movie.Description}"
-                               TextColor="White"
-                               FontSize="14"/>
+                                   TextColor="White"
+                                   FontSize="14"/>
                     </ScrollView>
                 </Grid>
                 <BoxView 
@@ -48,9 +49,9 @@
                 <Image Source="{Binding Movie.BackdropImageSource}"/>
                 <Label Text="{Binding Tagline}"
                        TextColor="White"
-                       FontSize="Small"/>
+                       FontSize="Small"
+                       FontAttributes="Italic"/>
             </StackLayout>
-            
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
