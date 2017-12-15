@@ -29,7 +29,10 @@
             
             <ActivityIndicator Color="Gray" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}"/>
             
-            <pages:MovieListContentView/>
+            <pages:MovieListContentView
+                IsVisible="{Binding SomeResult}"/>
+
+            <Label x:Name="noResultLabel" Text="No Result" TextColor="White" HorizontalOptions="Center" IsVisible="{Binding NoResult}"/>
             
             
         </StackLayout>

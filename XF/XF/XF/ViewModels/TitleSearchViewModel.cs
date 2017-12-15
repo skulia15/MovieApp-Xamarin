@@ -18,6 +18,9 @@ namespace XF.ViewModels
 		public ICommand TitleSearchCommand { protected set; get; }
 		public string searchTitle;
 		private bool loading;
+		private bool noResult = false;
+		private bool someResult = false;
+
 
 		public TitleSearchViewModel(MovieController movieController)
 		{
@@ -29,12 +32,44 @@ namespace XF.ViewModels
 					// Activate loading Icon
 					Loading = true;
 					// Search movies by title
+					NoResult = false;
 					await GetMoviesAsync();
+
+					if (this.Movies.Count != 0)
+					{
+						SomeResult = true;
+						NoResult = false;
+					}
+					else
+					{
+						SomeResult = false;
+						NoResult = true;
+					}
 					// Deactivate loading icon
 					Loading = false;
 					GetCast(Movies);
 				}
 			});
+		}
+
+		public bool SomeResult
+		{
+			get => someResult;
+			set
+			{
+				someResult = value;
+				OnPropertyChanged();
+			}
+		}
+
+		public bool NoResult
+		{
+			get => noResult;
+			set
+			{
+				noResult = value;
+				OnPropertyChanged();
+			}
 		}
 
 		public string SearchTitle
