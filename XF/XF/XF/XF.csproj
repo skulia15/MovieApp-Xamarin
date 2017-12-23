@@ -41,6 +41,10 @@
     <Compile Include="Pages\CastListContentView.xaml.cs">
       <DependentUpon>CastListContentView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CastMemberPage.xaml.cs">
+      <DependentUpon>CastMemberPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CastMemberViewModel.cs" />
     <Compile Include="Pages\CastPage.xaml.cs">
       <DependentUpon>CastPage.xaml</DependentUpon>
     </Compile>
@@ -134,6 +138,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\CastPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CastMemberPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

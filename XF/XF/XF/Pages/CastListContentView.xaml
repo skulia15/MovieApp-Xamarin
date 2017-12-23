@@ -6,7 +6,8 @@
             HasUnevenRows="True"
             ItemsSource="{Binding Movie.ListCast}"
             SeparatorColor="Gold"
-            BackgroundColor="#373737">
+            BackgroundColor="#373737"
+            SelectedItem="{Binding SelectedCastMember, Mode=TwoWay}">>
     <ListView.ItemTemplate>
         <DataTemplate>
             <ViewCell>

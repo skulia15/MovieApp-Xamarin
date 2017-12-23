@@ -26,75 +26,15 @@ namespace XF.ViewModels
 			this._navigation = navigation;
 		}
 
-		//public async Task GetCast(List<Movie> movies)
-		//{
-		//	foreach (Movie movie in movies)
-		//	{
-		//		try
-		//		{
-		//			movie.ListCast = await _movieController.GetCastByIdAsync(movie.Id);
-		//			movie.Cast = movie.CastToString();
-		//		}
-		//		catch (Exception e)
-		//		{
-		//			movie.ListCast = null;
-		//		}
-		//		this.Cast = movies;
-		//	}
-		//}
-
 		public List<string> ListCast
 		{
 			get { return this._cast; }
 			set
 			{
 				this._cast = value;
-				//OnPropertyChanged();
+				OnPropertyChanged();
 			}
 		}
-
-		//public Movie SelectedCastMember
-		//{
-		//	get => this._selectedCastMember;
-		//	set
-		//	{
-		//		if (value != null)
-		//		{
-		//			this._selectedCastMember = value;
-		//			this.OnPropertyChanged();
-		//			this._navigation.PushAsync(new MoviePage(this._selectedCastMember, _movieController), true);
-		//			this._selectedCastMember = null;
-		//			this.OnPropertyChanged();
-		//		}
-		//	}
-		//}
-
-		//public ICommand RefreshCommand
-		//{
-		//	get
-		//	{
-		//		return new Command(async () =>
-		//		{
-		//			IsRefreshing = true;
-
-		//			await GetMoviesAsync();
-
-		//			IsRefreshing = false;
-		//		});
-		//	}
-		//}
-
-		//internal abstract Task GetMoviesAsync();
-
-		//public bool IsRefreshing
-		//{
-		//	get { return _isRefreshing; }
-		//	set
-		//	{
-		//		_isRefreshing = value;
-		//		OnPropertyChanged(nameof(IsRefreshing));
-		//	}
-		//}
 
 		public event PropertyChangedEventHandler PropertyChanged;
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

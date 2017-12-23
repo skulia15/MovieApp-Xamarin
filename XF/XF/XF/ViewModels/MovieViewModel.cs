@@ -18,6 +18,7 @@ namespace XF.ViewModels
 	{
 		public ICommand SeeCastCommand { protected set; get; }
 		private INavigation _navigation;
+		protected CastMember _selectedCastMember;
 		private Movie _movie;
 		MovieController _movieController;
 
@@ -70,7 +71,23 @@ namespace XF.ViewModels
 			Movie.Genres = _movie.GetStringedGenres();
 			Runtime = movieInfo.Runtime;
 			Tagline = movieInfo.Tagline;
-		} 
+		}
+
+		public CastMember SelectedCastMember
+		{
+			get => this._selectedCastMember;
+			set
+			{
+				if (value != null)
+				{
+					this._selectedCastMember = value;
+					this.OnPropertyChanged();
+					this._navigation.PushAsync(new CastMemberPage(this._selectedCastMember, _movieController), true);
+					this._selectedCastMember = null;
+					this.OnPropertyChanged();
+				}
+			}
+		}
 
 
 		public event PropertyChangedEventHandler PropertyChanged;
