@@ -9,7 +9,7 @@
         <StackLayout
                      Spacing="10"
                      BackgroundColor="#373737">
-            <SearchBar Margin="10, 30, 10, 10"
+            <SearchBar Margin="10, 30, 10, 0"
                        x:Name="titleSearch"
                        Placeholder="Search for Movie"
                        TextColor="Black"

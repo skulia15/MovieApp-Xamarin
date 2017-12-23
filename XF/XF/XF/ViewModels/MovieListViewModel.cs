@@ -13,7 +13,7 @@ using XF.Pages;
 
 namespace XF.ViewModels
 {
-	public abstract class ListViewModel : INotifyPropertyChanged
+	public abstract class MovieListViewModel : INotifyPropertyChanged
 	{
 		protected INavigation _navigation;
 		protected MovieController _movieController;

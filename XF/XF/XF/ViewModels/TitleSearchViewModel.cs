@@ -13,7 +13,7 @@ using XF.Pages;
 
 namespace XF.ViewModels
 {
-	class TitleSearchViewModel : ListViewModel
+	class TitleSearchViewModel : MovieListViewModel
 	{
 		public ICommand TitleSearchCommand { protected set; get; }
 		public string searchTitle;

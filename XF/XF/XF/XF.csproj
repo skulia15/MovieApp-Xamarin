@@ -38,6 +38,12 @@
     <Compile Include="Pages\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CastListContentView.xaml.cs">
+      <DependentUpon>CastListContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CastPage.xaml.cs">
+      <DependentUpon>CastPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MovieListContentView.xaml.cs">
       <DependentUpon>MovieListContentView.xaml</DependentUpon>
     </Compile>
@@ -48,7 +54,8 @@
     <Compile Include="Pages\CustomListPage.xaml.cs">
       <DependentUpon>CustomListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ListViewModel.cs" />
+    <Compile Include="ViewModels\CastListViewModel.cs" />
+    <Compile Include="ViewModels\MovieListViewModel.cs" />
     <Compile Include="ViewModels\MovieViewModel.cs" />
     <Compile Include="Pages\TitleSearchPage.xaml.cs">
       <DependentUpon>TitleSearchPage.xaml</DependentUpon>
@@ -96,7 +103,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="Renderers\" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +119,21 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\MovieListContentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CastListContentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CastPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -13,15 +13,14 @@ using XF.ViewModels;
 namespace XF.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CustomListPage : ContentPage
+	public partial class CastPage : ContentPage
 	{
-		public MovieListViewModel viewModel;
-		MovieController _movieController;
-		public CustomListPage(MovieController movieController, MovieListViewModel viewModel)
+		private Movie _movie;
+		MovieViewModel viewModel;
+		public CastPage(MovieController movieController, Movie movie)
 		{
-			this.viewModel = viewModel;
-			this._movieController = movieController;
-			this.viewModel.SetNavigation(Navigation);
+			this._movie = movie;
+			viewModel = new MovieViewModel(this.Navigation, movie, movieController);
 			this.BindingContext = viewModel;
 			InitializeComponent();
 		}

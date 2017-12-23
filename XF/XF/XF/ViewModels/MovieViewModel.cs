@@ -7,13 +7,16 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using XF.Controllers;
+using XF.Pages;
 
 namespace XF.ViewModels
 {
     public class MovieViewModel : INotifyPropertyChanged
 	{
+		public ICommand SeeCastCommand { protected set; get; }
 		private INavigation _navigation;
 		private Movie _movie;
 		MovieController _movieController;
@@ -23,6 +26,12 @@ namespace XF.ViewModels
 			this._navigation = navigation;
 			this._movieController = movieController;
 			_movie = movie;
+
+			SeeCastCommand = new Command(async () =>
+			{
+				await _navigation.PushAsync(new CastPage(_movieController, _movie));
+			});
+
 		}
 
 		public Movie Movie
@@ -62,6 +71,7 @@ namespace XF.ViewModels
 			Runtime = movieInfo.Runtime;
 			Tagline = movieInfo.Tagline;
 		} 
+
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

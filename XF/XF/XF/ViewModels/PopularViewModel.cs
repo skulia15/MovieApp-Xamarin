@@ -13,7 +13,7 @@ using XF.Pages;
 
 namespace XF.ViewModels
 {
-	class PopularViewModel : ListViewModel
+	class PopularViewModel : MovieListViewModel
 	{
 		//private bool _isRefreshing = false;
 		public PopularViewModel(MovieController movieController)

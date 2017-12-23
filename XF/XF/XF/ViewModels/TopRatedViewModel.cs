@@ -13,7 +13,7 @@ using XF.Pages;
 
 namespace XF.ViewModels
 {
-	class TopRatedViewModel : ListViewModel
+	class TopRatedViewModel : MovieListViewModel
 	{
 		
 		public TopRatedViewModel(MovieController movieController)

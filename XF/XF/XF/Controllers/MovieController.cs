@@ -36,15 +36,10 @@ namespace XF.Controllers
 			return movies;
 		}
 
-		public async Task<List<string>> GetCastByIdAsync(int id)
+		public async Task<List<CastMember>> GetCastByIdAsync(int id)
 		{
-			var creditResponse = await converter.GetCastByIdAsync(id);
-			List<string> cast = new List<string>();
-			foreach (MovieCastMember c in creditResponse)
-			{
-				cast.Add(c.Name);
-			}
-
+			List<CastMember> cast = await converter.GetCastByIdAsync(id);
+			
 			return cast;
 		}
 

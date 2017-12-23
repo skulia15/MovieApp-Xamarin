@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://xamarin.com/schemas/2014/forms" 
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="XF.Pages.MovieListContentView"
+            x:Class="XF.Pages.CastListContentView"
             x:Name="ListView"
             HasUnevenRows="True"
-            ItemsSource="{Binding Movies}"
+            ItemsSource="{Binding Movie.ListCast}"
             SeparatorColor="Gold"
-            BackgroundColor="#373737"
-            SelectedItem="{Binding SelectedMovie, Mode=TwoWay}">
+            BackgroundColor="#373737">
     <ListView.ItemTemplate>
         <DataTemplate>
             <ViewCell>
@@ -24,25 +23,19 @@
                     <Image Grid.Row="0"
                             Grid.Column="0"
                             Grid.RowSpan="3"
-                            Source="{Binding PosterImageSource}"/>
+                            Source="{Binding ProfileImageSource}"/>
                     <Label Grid.Row="0"
                             Grid.Column="1"
                             Margin="10, 10, 0, 0"
-                            Text="{Binding TitleAndYear}"
+                            Text="{Binding Name}"
                             FontSize="18"
                             TextColor="White"/>
                     <Label Grid.Row="1"
                             Grid.Column="1"
                             Margin="10, 0, 0, 0"
-                            Text="{Binding Rating, StringFormat='{0} Stars'}"
+                            Text="{Binding Character, StringFormat='As {0}'}"
                             FontSize="12"
                             TextColor="White"/>
-                    <Label Grid.Row="2"
-                            Grid.Column="1"
-                            Margin="10, 0, 0, 10"
-                            Text="{Binding Cast}"
-                            TextColor="White"
-                            FontSize="14"/>
                 </Grid>
             </ViewCell>
         </DataTemplate>

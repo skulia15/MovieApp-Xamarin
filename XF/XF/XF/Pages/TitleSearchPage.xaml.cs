@@ -14,9 +14,9 @@ namespace XF.Pages
 	public partial class TitleSearchPage : ContentPage
 	{
 		MovieController _movieController;
-		ListViewModel viewModel;
+		MovieListViewModel viewModel;
 		
-		public TitleSearchPage(MovieController movieController, ListViewModel viewModel)
+		public TitleSearchPage(MovieController movieController, MovieListViewModel viewModel)
 		{
 			this.viewModel = viewModel;
 			this._movieController = movieController;
